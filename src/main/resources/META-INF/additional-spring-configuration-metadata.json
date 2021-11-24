@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "secret",
+      "type": "java.lang.String",
+      "description": "Description for secret."
+    },
+    {
+      "name": "acceptedFileTypes",
+      "type": "java.lang.String",
+      "description": "Description for acceptedFileTypes."
+    }
+  ] }

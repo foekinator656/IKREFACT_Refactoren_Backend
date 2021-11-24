@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  mariadb:
+    container_name: IPSEN2-mariadb
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: TotallyHackable
+      MARIADB_DATABASE: Bouncer
+    ports:
+      - "3306:3306"
