@@ -33,10 +33,10 @@ public class PhotoController {
         this.photoRepository = photoRepository;
     }
 
-    /**
+    /***
      * The Get mapping returns the image with the entered ID
      *
-     * @param id
+     //* @param id
      * @return Image and Httpstatus
      * @throws IOException
      */
