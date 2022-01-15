@@ -30,6 +30,13 @@ public class UserAccount extends User implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    public UserAccount(Long id, String username, String email, String password, String firstName, String lastName, Role role) {
+        super(id,username, role);
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public String getEmail() {
         return email;

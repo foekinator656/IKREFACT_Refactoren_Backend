@@ -25,6 +25,12 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(Long id, String username, Role role) {
+        this.id = id;
+        this.username = username;
+        this.role = role;
+    }
+
     public User(Long id, Site site, String username, Role role) {
         this.id = id;
         this.site = site;
