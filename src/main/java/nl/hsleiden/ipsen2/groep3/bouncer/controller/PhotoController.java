@@ -33,14 +33,6 @@ public class PhotoController {
         this.photoRepository = photoRepository;
     }
 
-    /**
-     * The Get mapping returns the image with the entered ID
-     *
-     * @param id
-     * @return Image and Httpstatus
-     * @throws IOException
-     */
-
     @GetMapping(value = "/{fileName}")
     public @ResponseBody ResponseEntity<Resource> getImage(@PathVariable("fileName") String fileName) throws IOException {
         Optional<Photo> optionalPhoto = photoRepository.findByFilename(fileName);

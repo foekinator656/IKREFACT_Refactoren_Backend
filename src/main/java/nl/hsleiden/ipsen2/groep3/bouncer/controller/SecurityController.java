@@ -41,19 +41,6 @@ public class SecurityController {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> login(@ModelAttribute AuthenticationRequest authenticationRequest, BCryptPasswordEncoder passwordEncoder) {
-        final UserDetails userDetails = userDetailsService
-                .loadUserByUsername(authenticationRequest.getUsername());
-
-        if (userDetails == null || !passwordEncoder.matches(authenticationRequest.getPassword(), userDetails.getPassword())) {
-            throw new BadCredentialsException("Invalid username/password");
-        }
-
-        final String jwt = this.jwtService.generateToken(userDetails);
-        return new ResponseEntity<>(new AuthenticationResponse(jwt, (UserAccount) ((UserPrincipal) userDetails).getUser()), HttpStatus.OK);
-    }
-
     @PostMapping("/login/uid")
     public ResponseEntity<AuthenticationResponse> loginWithUID(@ModelAttribute AuthenticationRequestWithUID authenticationRequest) {
         final UserDetails userDetails = userDetailsService.loadByUID(authenticationRequest.getUid());
@@ -62,20 +49,5 @@ public class SecurityController {
         Worker worker = (Worker) this.userRepository.findFirstByUsernameEquals(authenticationRequest.getUid());
 
         return new ResponseEntity<>(new AuthenticationResponse(jwt, worker), HttpStatus.OK);
-    }
-
-    @GetMapping("/register")
-    public ResponseEntity<UserAccount> register (BCryptPasswordEncoder passwordEncoder) {
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUsername("jdoe");
-        userAccount.setFirstName("John");
-        userAccount.setLastName("Doe");
-        userAccount.setEmail("johndoe@gmail.com");
-        userAccount.setPassword(passwordEncoder.encode("12345678"));
-        userAccount.setRole(Role.MODERATOR);
-
-        userAccount = this.userRepository.save(userAccount);
-
-        return new ResponseEntity<>(userAccount, HttpStatus.CREATED);
     }
 }

@@ -8,10 +8,7 @@ package nl.hsleiden.ipsen2.groep3.bouncer.model;
  */
 
 public enum Role {
-    WORKER(0),
-    MODERATOR(1),
-    SITE_ADMIN(2),
-    ADMIN(3);
+    WORKER(0);
 
     private final int value;
 

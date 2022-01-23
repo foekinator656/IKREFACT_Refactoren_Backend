@@ -9,6 +9,5 @@ import java.util.List;
  */
 
 public interface RequestRepository extends JpaRepository<Request, Long> {
-    Request findRequestByRequestedByUsername(String username);
     Request findFirstByRequestedByUsername(String username);
 }

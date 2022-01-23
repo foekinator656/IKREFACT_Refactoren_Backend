@@ -24,24 +24,6 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<User>> index () {
-        List<User> users = null;
-
-        UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Role role = ((User) userPrincipal.getUser()).getRole();
-
-        if (role == Role.WORKER || role == Role.MODERATOR) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        } else if (role == Role.SITE_ADMIN) {
-            users = this.userRepository.findUserByRoleGreaterThanAndRoleLessThanEqual(Role.WORKER, Role.SITE_ADMIN);
-        } else if (role == Role.ADMIN) {
-            users = this.userRepository.findUserByRoleGreaterThanAndRoleLessThanEqual(Role.WORKER, Role.ADMIN);
-        }
-
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<User> show (@PathVariable("id") Long id) {
         Optional<User> user = this.userRepository.findById(id);

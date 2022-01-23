@@ -11,5 +11,4 @@ import java.util.List;
  */
 public interface UserRepository extends JpaRepository<User, Long> {
     User findFirstByUsernameEquals(String username);
-    List<User> findUserByRoleGreaterThanAndRoleLessThanEqual (Role role, Role roleMax);
 }
