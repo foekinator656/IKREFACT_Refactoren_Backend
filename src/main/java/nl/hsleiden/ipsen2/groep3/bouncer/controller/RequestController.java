@@ -15,12 +15,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * The RequestController manages all requests
@@ -64,51 +66,82 @@ public class RequestController {
         return new ResponseEntity<>(this.requestRepository.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping("")
-    public ResponseEntity<String> FileUpload(@ModelAttribute CreateRequestRequest body) {
+    public Worker CheckIfuserIsValid(){
         UserPrincipal userAccountPrincipal = (UserPrincipal) SecurityContextHolder
                 .getContext().getAuthentication().getPrincipal();
 
         Worker user = (Worker) userAccountPrincipal.getUser();
+        return user;
+    }
 
-        try {
-            String qrCodeString = this.readQrCode(body.getFile());
-            Optional<QrCode> qrCode = qrCodeRepository.findByCode(qrCodeString);
-
-            if (qrCode.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-
-            Request request = qrCode.get().getRequest();
-
-            if (!Objects.equals(request.getRequestedBy().getId(), user.getId())) {
-                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-            }
-
-            user.seteMail(body.geteMail());
-            user.setfName(body.getfName());
-            user.setlName(body.getlName());
-            user.setBirthday(body.getBirthday());
-
-            this.userRepository.save(user);
-
-            Photo photo = storeFileAndCreatePhoto(body.getFile());
-            request.addPhoto(photo);
-
-            photoRepository.save(photo);
-
-            this.requestRepository.save(request);
-
-            RequestUpdate requestUpdate = new RequestUpdate();
-            requestUpdate.setRequest(request);
-            requestUpdate.setNewState(Status.PENDING);
-
-            this.requestUpdateRepository.save(requestUpdate);
-        } catch (InvalidFileTypeException | NotFoundException | IOException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.PRECONDITION_FAILED);
+    public Boolean CheckIfReuestIsValid(CreateRequest newRequest,Worker user) throws NotFoundException, IOException {
+        String qrCodeString = this.readQrCode(newRequest.getFile());
+        Optional<QrCode> qrCode = qrCodeRepository.findByCode(qrCodeString);
+        if (qrCode.isEmpty()) {
+            return false;
         }
+        Request request = qrCode.get().getRequest();
+        if (!Objects.equals(request.getRequestedBy().getId(), user.getId())) {
+            return false;
+        }
+        return true;
+    }
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public Request getReuqest(CreateRequest newRequest){
+        String qrCodeString = null;
+        try {
+            qrCodeString = this.readQrCode(newRequest.getFile());
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Optional<QrCode> qrCode = qrCodeRepository.findByCode(qrCodeString);
+        Request request = qrCode.get().getRequest();
+        return request;
+    }
+    public void SaveUser(CreateRequest newRequest){
+        Worker user = CheckIfuserIsValid();
+        user.setEMail(newRequest.geteMail());
+        user.setfName(newRequest.getfName());
+        user.setlName(newRequest.getlName());
+        user.setBirthday(newRequest.getBirthday());
+        this.userRepository.save(user);
+    }
+
+    public void SavePhoto(CreateRequest newCreateRequest){
+        Request newRequest = getReuqest(newCreateRequest);
+        Photo photo = null;
+        try {
+            photo = storeFileAndCreatePhoto(newCreateRequest.getFile());
+        } catch (InvalidFileTypeException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        newRequest.setPhotos((Set<Photo>) photo);
+        photoRepository.save(photo);
+    }
+
+    @PostMapping("")
+    public ResponseEntity<String> CreateNewRequest(@ModelAttribute CreateRequest newCreateRequest) {
+        Worker user = CheckIfuserIsValid();
+        Request newRequest = getReuqest(newCreateRequest);
+        try {
+            if (!CheckIfReuestIsValid(newCreateRequest,user)){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"QR Code is niet gevonden of je hebt niet genoegRechten!");
+            }
+            SaveUser(newCreateRequest);
+            SavePhoto(newCreateRequest);
+            this.requestRepository.save(newRequest);
+            RequestUpdate requestUpdate = new RequestUpdate();
+            requestUpdate.setRequest(newRequest);
+            requestUpdate.setNewState(Status.PENDING);
+            this.requestUpdateRepository.save(requestUpdate);
+        } catch (NotFoundException | IOException e) {
+            throw new ResponseStatusException(HttpStatus.PRECONDITION_FAILED, "Er ging iets fout met het opstuuren van de Request! Check je Request nog een keer dat je alles hebt ingevuld! ");
+        }
+        throw new ResponseStatusException(HttpStatus.CREATED,"Request is gemaakt!");
     }
 
     private String readQrCode (MultipartFile file) throws NotFoundException, IOException {
@@ -125,43 +158,6 @@ public class RequestController {
         photo.setFilename(newName);
 
         return photo;
-    }
-
-    @GetMapping("/{id}/{status}/review")
-    public ResponseEntity<RequestUpdate> requestUpdate(@PathVariable("id") Long id, @PathVariable("status") int status) {
-        Optional<Request> optionalRequest = this.requestRepository.findById(id);
-        UserPrincipal userAccountPrincipal = (UserPrincipal) SecurityContextHolder
-                .getContext().getAuthentication().getPrincipal();
-
-        if (optionalRequest.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        UserAccount user = (UserAccount) userAccountPrincipal.getUser();
-
-        if (!user.isGranted(Role.MODERATOR) && !user.isGranted(Role.SITE_ADMIN)) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-
-        Request request = optionalRequest.get();
-        RequestUpdate requestupdate = new RequestUpdate();
-        requestupdate.setRequest(request);
-        requestupdate.setNewState(Status.values()[status]);
-        requestupdate.setUpdatedBy(user);
-        requestUpdateRepository.save(requestupdate);
-
-        return new ResponseEntity<>(requestupdate, HttpStatus.OK);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Request> findById (@PathVariable("id") Long id) {
-        Optional<Request> optionalRequest = this.requestRepository.findById(id);
-
-        if (optionalRequest.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<>(optionalRequest.get(), HttpStatus.OK);
     }
 
     @PostMapping("/{id}/photo/")

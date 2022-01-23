@@ -1,8 +1,6 @@
 package nl.hsleiden.ipsen2.groep3.bouncer.model;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 
 /**
@@ -17,26 +15,26 @@ public class Worker extends User {
     private String uid;
     private String fName;
     private String lName;
-    private String eMail;
+    private String EMail;
     private String birthday;
 
     public Worker() {
     }
 
-    public Worker(String uid, String fName, String lName, String eMail, String birthday) {
+    public Worker(String uid, String fName, String lName, String EMail, String birthday) {
         this.uid = uid;
         this.fName = fName;
         this.lName = lName;
-        this.eMail = eMail;
+        this.EMail = EMail;
         this.birthday = birthday;
     }
 
-    public Worker(Long id, Site site, String username, Role role, String uid, String fName, String lName, String eMail, String birthday) {
-        super(id, site, username, role);
+    public Worker(Long id, String username, Role role, String uid, String fName, String lName, String EMail, String birthday) {
+        super(id, username, role);
         this.uid = uid;
         this.fName = fName;
         this.lName = lName;
-        this.eMail = eMail;
+        this.EMail = EMail;
         this.birthday = birthday;
     }
 
@@ -64,12 +62,12 @@ public class Worker extends User {
         this.lName = lName;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEMail() {
+        return EMail;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEMail(String eMail) {
+        this.EMail = eMail;
     }
 
     public String getBirthday() {

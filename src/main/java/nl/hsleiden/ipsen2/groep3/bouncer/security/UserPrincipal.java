@@ -24,10 +24,6 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        if (this.user.isGrantedMinimum(Role.MODERATOR)) {
-            return ((UserAccount) user).getPassword();
-        }
-
         return null;
     }
 
@@ -63,15 +59,7 @@ public class UserPrincipal implements UserDetails {
      * @return user object, must be casted in to correct type!
      */
     public Object getUser () {
-        if (this.user.isGrantedMinimum(Role.MODERATOR)) {
-            return this.getUserAccount();
-        }
-
         return this.getWorker();
-    }
-
-    private UserAccount getUserAccount () {
-        return (UserAccount) this.user;
     }
 
     private Worker getWorker () {

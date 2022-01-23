@@ -15,10 +15,6 @@ public class User implements Serializable {
     @Id
     @GeneratedValue()
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "site_id", nullable = true)
-    protected Site site;
     protected String username;
     protected Role role;
 
@@ -31,27 +27,12 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public User(Long id, Site site, String username, Role role) {
-        this.id = id;
-        this.site = site;
-        this.username = username;
-        this.role = role;
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Site getSite() {
-        return site;
-    }
-
-    public void setSite(Site site) {
-        this.site = site;
     }
 
     public String getUsername() {
@@ -68,10 +49,6 @@ public class User implements Serializable {
 
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    public boolean isGranted(Role role) {
-        return this.getRole() == role;
     }
 
     public boolean isGrantedMinimum(Role role) {
