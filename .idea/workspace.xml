@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="51f6ef9d-9a7a-4725-92e7-934f91dbb192" name="Changes" comment="meer clean code">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/mysql.osA4Bg.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/sys.zb4BAA.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/controller/PhotoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/model/CreateRequestRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/repository/PhotoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/controller/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/controller/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/JwtService.java" afterDir="false" />
+    </list>
+    <list id="92f310aa-ab1c-4a81-8924-59e8b7194f5e" name="Changes by Eefje" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/model/Request.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="foekinator656" />
+        <option name="repository" value="IKREFACT_Refactoren_Backend" />
+      </RepoCoordinatesHolder>
+    </option>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Structure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
+        <entry key="JPA Structure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="21dUJN8gaPjH3V0uzW7fEwDueQL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.BouncerApplication">
+    <configuration name="BouncerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Bouncer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="nl.hsleiden.ipsen2.groep3.bouncer.BouncerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51f6ef9d-9a7a-4725-92e7-934f91dbb192" name="Changes" comment="" />
+      <created>1638270385640</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638270385640</updated>
+      <workItem from="1638270387064" duration="5614000" />
+      <workItem from="1638284446834" duration="4808000" />
+      <workItem from="1638532256670" duration="5809000" />
+      <workItem from="1638887850499" duration="2999000" />
+      <workItem from="1638956465715" duration="76000" />
+      <workItem from="1642236208642" duration="8097000" />
+      <workItem from="1642949723711" duration="393000" />
+      <workItem from="1643010282231" duration="248000" />
+      <workItem from="1643728040884" duration="1359000" />
+      <workItem from="1648998470997" duration="564000" />
+      <workItem from="1649400874538" duration="518000" />
+      <workItem from="1649436335139" duration="3221000" />
+      <workItem from="1649955332864" duration="368000" />
+    </task>
+    <task id="LOCAL-00001" summary="sekswerker kan inloggen en aavraag maken">
+      <created>1638532443613</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638532443613</updated>
+    </task>
+    <task id="LOCAL-00002" summary="terug naar normaal">
+      <created>1642236928464</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642236928464</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Micro service">
+      <created>1642950069566</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1642950069566</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="sekswerker kan inloggen en aavraag maken" />
+    <MESSAGE value="terug naar normaal" />
+    <MESSAGE value="Micro service" />
+    <MESSAGE value="meer clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="meer clean code" />
+  </component>
+</project>

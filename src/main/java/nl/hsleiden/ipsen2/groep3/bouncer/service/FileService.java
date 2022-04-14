@@ -47,20 +47,6 @@ public class FileService {
         }
     }
 
-    public String calculateFileHash(MultipartFile file) throws IOException {
-        return null;
-    }
-
-    /**
-     * Geeft percentage terug hoeveel de fotos op elkaar lijken
-     *
-     * @param hash van afbeelding waarme vergeleken moet worden
-     * @return float
-     */
-    public float compareHash(String hash){
-        return 0;
-    }
-
     public MultipartFile getFile() {
         return file;
     }
@@ -71,7 +57,7 @@ public class FileService {
 
     public String generateFileName() {
         String fileExtension = FilenameUtils.getExtension(this.file.getOriginalFilename());
-
-        return UUID.randomUUID() + "." + fileExtension.toLowerCase();
+        String generatedFile = UUID.randomUUID() + "." + fileExtension.toLowerCase();
+        return generatedFile;
     }
 }

@@ -125,22 +125,30 @@ public class RequestController {
 
     @PostMapping("")
     public ResponseEntity<String> CreateNewRequest(@ModelAttribute CreateRequest newCreateRequest) {
+
         Worker user = CheckIfuserIsValid();
+
         Request newRequest = getReuqest(newCreateRequest);
+
         try {
+
             if (!CheckIfReuestIsValid(newCreateRequest,user)){
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"QR Code is niet gevonden of je hebt niet genoegRechten!");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"QR Code niet gevonden!");
             }
+
             SaveUser(newCreateRequest);
             SavePhoto(newCreateRequest);
             this.requestRepository.save(newRequest);
+
             RequestUpdate requestUpdate = new RequestUpdate();
             requestUpdate.setRequest(newRequest);
             requestUpdate.setNewState(Status.PENDING);
             this.requestUpdateRepository.save(requestUpdate);
+
         } catch (NotFoundException | IOException e) {
-            throw new ResponseStatusException(HttpStatus.PRECONDITION_FAILED, "Er ging iets fout met het opstuuren van de Request! Check je Request nog een keer dat je alles hebt ingevuld! ");
+            throw new ResponseStatusException(HttpStatus.PRECONDITION_FAILED, "Request is niet goed ingevuld!");
         }
+
         throw new ResponseStatusException(HttpStatus.CREATED,"Request is gemaakt!");
     }
 
