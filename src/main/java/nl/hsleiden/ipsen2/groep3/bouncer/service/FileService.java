@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -25,7 +26,7 @@ public class FileService {
     private static final int MEGABYTE = 1_048_576;
 
     public FileService(Environment environment) {
-        this.EXTENTIONS.addAll(Arrays.asList(environment.getProperty("acceptedFileTypes").split(",")));
+        this.EXTENTIONS.addAll(Arrays.asList(Objects.requireNonNull(environment.getProperty("acceptedFileTypes")).split(",")));
     }
 
     public void validateFile() throws InvalidFileTypeException, FileNotFoundException {
@@ -36,6 +37,7 @@ public class FileService {
     private void validateFileType() throws InvalidFileTypeException {
         String fileExtension = FilenameUtils.getExtension(this.file.getOriginalFilename());
 
+        assert fileExtension != null;
         if (!EXTENTIONS.contains(fileExtension.toLowerCase())) {
             throw new InvalidFileTypeException(fileExtension);
         }
@@ -57,7 +59,8 @@ public class FileService {
 
     public String generateFileName() {
         String fileExtension = FilenameUtils.getExtension(this.file.getOriginalFilename());
-        String generatedFile = UUID.randomUUID() + "." + fileExtension.toLowerCase();
-        return generatedFile;
+        assert fileExtension != null;
+        String generatedFileName = UUID.randomUUID() + "." + fileExtension.toLowerCase();
+        return generatedFileName;
     }
 }

@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51f6ef9d-9a7a-4725-92e7-934f91dbb192" name="Changes" comment="meer clean code">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/mysql.osA4Bg.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d6642d40-2ee6-4a20-be18-e629a1dbef10/storage_v2/_src_/schema/sys.zb4BAA.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/controller/PhotoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/model/CreateRequestRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/nl/hsleiden/ipsen2/groep3/bouncer/repository/PhotoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/controller/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/controller/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/FileService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/JwtService.java" afterDir="false" />
     </list>
@@ -45,6 +24,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="recentNewPullRequestHead">
@@ -143,7 +130,9 @@
       <workItem from="1648998470997" duration="564000" />
       <workItem from="1649400874538" duration="518000" />
       <workItem from="1649436335139" duration="3221000" />
-      <workItem from="1649955332864" duration="368000" />
+      <workItem from="1649955332864" duration="405000" />
+      <workItem from="1649955947789" duration="644000" />
+      <workItem from="1650048153512" duration="312000" />
     </task>
     <task id="LOCAL-00001" summary="sekswerker kan inloggen en aavraag maken">
       <created>1638532443613</created>
@@ -166,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642950069566</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="meer clean code">
+      <created>1649955722308</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649955722308</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
