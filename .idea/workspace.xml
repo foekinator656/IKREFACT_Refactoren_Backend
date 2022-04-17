@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="51f6ef9d-9a7a-4725-92e7-934f91dbb192" name="Changes" comment="meer clean code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/service/JwtService.java" afterDir="false" />
     </list>
     <list id="92f310aa-ab1c-4a81-8924-59e8b7194f5e" name="Changes by Eefje" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/ipsen2/groep3/bouncer/model/Request.java" afterDir="false" />
@@ -132,7 +130,8 @@
       <workItem from="1649436335139" duration="3221000" />
       <workItem from="1649955332864" duration="405000" />
       <workItem from="1649955947789" duration="644000" />
-      <workItem from="1650048153512" duration="312000" />
+      <workItem from="1650048153512" duration="449000" />
+      <workItem from="1650186180512" duration="715000" />
     </task>
     <task id="LOCAL-00001" summary="sekswerker kan inloggen en aavraag maken">
       <created>1638532443613</created>
@@ -162,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649955722308</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="meer clean code">
+      <created>1650048631298</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650048631298</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

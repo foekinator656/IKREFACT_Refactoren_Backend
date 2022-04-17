@@ -100,7 +100,7 @@ public class RequestController {
         Request request = qrCode.get().getRequest();
         return request;
     }
-    public void SaveUser(CreateRequest newRequest){
+    public void saveNewUser(CreateRequest newRequest){
         Worker user = CheckIfuserIsValid();
         user.setEMail(newRequest.geteMail());
         user.setfName(newRequest.getfName());
@@ -109,7 +109,7 @@ public class RequestController {
         this.userRepository.save(user);
     }
 
-    public void SavePhoto(CreateRequest newCreateRequest){
+    public void saveNewPhoto(CreateRequest newCreateRequest){
         Request newRequest = getReuqest(newCreateRequest);
         Photo photo = null;
         try {
@@ -136,8 +136,8 @@ public class RequestController {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"QR Code niet gevonden!");
             }
 
-            SaveUser(newCreateRequest);
-            SavePhoto(newCreateRequest);
+            saveNewUser(newCreateRequest);
+            saveNewPhoto(newCreateRequest);
             this.requestRepository.save(newRequest);
 
             RequestUpdate requestUpdate = new RequestUpdate();
