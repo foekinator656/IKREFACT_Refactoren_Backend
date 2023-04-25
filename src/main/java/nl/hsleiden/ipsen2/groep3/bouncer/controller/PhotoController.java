@@ -17,7 +17,7 @@ import java.util.Optional;
  * Manages uploading photos and saving images to
  * the photoRepository from the frontend via the endpoints.
  *
- * @author Youp van Leeuwen
+ * @author Loek Appel
  */
 
 @RestController
